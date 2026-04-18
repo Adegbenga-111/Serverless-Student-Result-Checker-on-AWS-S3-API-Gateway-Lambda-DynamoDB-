@@ -5,8 +5,6 @@ The Student Result Checker is a serverless web application that allows students 
 
 ## Architecture Overview
 ### Services Used
-
-
 |Service | Purpose|
 | -------- | -------- |
 | Amazon S3| Hosts static frontend website |
@@ -15,4 +13,9 @@ The Student Result Checker is a serverless web application that allows students 
 | Amazon DynamoDB | Stores student results |
 | IAM | Manages permissions securely|
 
+### Diagram 
+![Alt SSRC](https://github.com/Adegbenga-111/Serverless-Student-Result-Checker-on-AWS-S3-API-Gateway-Lambda-DynamoDB-/blob/main/Screenshot%20(551)2.png)
+
+ Image 01: Architecture Diagram
+ 
 
