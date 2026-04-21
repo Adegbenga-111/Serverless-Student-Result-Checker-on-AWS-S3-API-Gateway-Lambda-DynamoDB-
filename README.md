@@ -98,10 +98,9 @@ Set:
 Bucket policy:
 
 {
-
   "Version": "2012-10-17",
   
-  "Statement":
+ "Statement":
   
      [{ "Sid": "PublicReadAccess",
       
@@ -112,3 +111,4 @@ Bucket policy:
       "Action": "s3:GetObject",
       "Resource": "arn:aws:s3:::student-result-checker-site/*"
     }]
+}
