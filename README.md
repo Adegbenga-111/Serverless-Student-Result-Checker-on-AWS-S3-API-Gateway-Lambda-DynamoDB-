@@ -112,3 +112,117 @@ Bucket policy:
       "Resource": "arn:aws:s3:::student-result-checker-site/*"
     }]
 }
+
+## ⚠️ Problems Encountered and Solutions
+
+### Problem 1 — Missing Authentication Token
+Error :
+
+*Missing Authentication Token*
+
+Cause : Incorrect API Gateway endpoint URL
+
+Fix:
+Correct endpoint format:
+
+*https://API-ID.execute-api.REGION.amazonaws.com/STAGE/?student_id=CSC002*
+
+### Problem 2 — Decimal JSON Serialization Error
+
+Error :Object of type Decimal is not JSON serializable
+
+Cause
+
+DynamoDB returns numeric values as Decimal objects
+
+Fix
+Created custom encoder:
+
+*class DecimalEncoder(json.JSONEncoder)*
+
+### Problem 3 — queryStringParameters Error
+
+Error
+
+*KeyError: queryStringParameters*
+
+Cause
+
+Lambda expected parameter before validation
+
+Fix
+
+Added safe validation:
+
+*event.get('queryStringParameters')*
+
+### Problem 4 — Student Record Not Found (Frontend Only)
+Issue
+
+API returned correct data but website showed:
+
+*Student record not found*
+
+Cause
+
+CORS restriction blocking browser response
+
+Fix
+
+Added header:
+
+Access-Control-Allow-Origin: * 
+
+to Lambda response
+
+### Problem 5— Case Sensitivity Issue
+Issue
+
+Valid records returned “not found”
+
+Cause
+
+Student ID input mismatch
+
+Fix
+
+Normalized input:
+
+*.toUpperCase()*
+
+## 📊 Skills Demonstrated
+This project demonstrates practical experience with:
+
+- Serverless architecture deployment
+
+- REST API integration
+
+- DynamoDB querying
+
+- IAM permission configuration
+- Static website hosting
+- CORS troubleshooting
+- JSON serialization handling
+- API Gateway deployment stages
+- Cloud debugging workflow
+
+## ✅ Conclusion
+
+This project demonstrates how a complete serverless web application can be designed, deployed, and troubleshot using AWS managed services without provisioning traditional servers.
+
+Through this implementation, the application successfully:
+- Hosted a static frontend website
+- Built a REST API endpoint
+- Connected a Lambda backend to a NoSQL database
+- Implemented secure IAM permissions
+- Handled real-world integration challenges such as CORS restrictions, API deployment stages, JSON serialization issues, and input validation
+- Enabled dynamic result retrieval using Student ID queries
+
+During development, several practical cloud engineering challenges were identified and resolved, including API routing errors, permission misconfigurations, browser security restrictions, and frontend–backend communication issues. Solving these problems reflects hands-on experience with real deployment workflows rather than simulated environments.
+
+This project represents a foundational example of modern cloud-native architecture and demonstrates readiness for entry-level roles in:
+
+- Cloud Engineering ☁️
+- Cloud Support
+- DevOps Foundations
+- Cybersecurity Infrastructure Support 🔐
