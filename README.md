@@ -16,6 +16,37 @@ The Student Result Checker is a serverless web application that allows students 
 ### Diagram 
 ![Alt SSRC](https://github.com/Adegbenga-111/Serverless-Student-Result-Checker-on-AWS-S3-API-Gateway-Lambda-DynamoDB-/blob/main/Screenshot%20(551)2.png)
 
- Image 01: Architecture Diagram
- 
+Image 01: Architecture Diagram
 
+## ⚙️ How the Application Works
+ ### Step 1
+User enters Student ID on webpage , as shown in the image below :
+
+![Alt SSRC](https://github.com/Adegbenga-111/Serverless-Student-Result-Checker-on-AWS-S3-API-Gateway-Lambda-DynamoDB-/blob/main/Screenshot%20(588)1.png)
+  Image 02: The Frontend webpage 
+
+### Step 2
+Frontend JavaScript sends request:
+  
+   *GET /?student_id=CSC002*
+
+to API Gateway
+
+### Step 3
+
+API Gateway triggers Lambda function
+
+### Step 4
+Lambda queries DynamoDB table *student-results*
+
+### Step 5
+Result returned as JSON ,as shown below : 
+
+![Alt SSRC](https://github.com/Adegbenga-111/Serverless-Student-Result-Checker-on-AWS-S3-API-Gateway-Lambda-DynamoDB-/blob/main/Screenshot%20(591).png)
+  Image 03 : The result in JSON fromat 
+  
+  ### Step 6
+Frontend displays student result, as shown below :
+
+![Alt SSRC](https://github.com/Adegbenga-111/Serverless-Student-Result-Checker-on-AWS-S3-API-Gateway-Lambda-DynamoDB-/blob/main/Screenshot%20(592).png)
+  Image 04 : The result displayed on the Frontend website
